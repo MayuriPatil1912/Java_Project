@@ -21,7 +21,8 @@ abstract class Employee {
     // Abstract method to be implemented by subclasses
     public abstract double calculateSalary();
 
-    @Override
+    @Override  
+    // overiding in build toString method
     public String toString() {
         return "Employee [name=" + name + ", id=" + id + ", salary=" + calculateSalary() + "]";
     }
@@ -31,11 +32,12 @@ class FullTimeEmployee extends Employee {
     private double monthlySalary;
 
     public FullTimeEmployee(String name, int id, double monthlySalary) {
-        super(name, id);
+        super(name, id); // to acces parent class attribute
         this.monthlySalary = monthlySalary;
     }
 
     @Override
+    //The child class must provide the implementation of abstract method
     public double calculateSalary() {
         return monthlySalary;
     }
@@ -52,6 +54,7 @@ class PartTimeEmployee extends Employee {
     }
 
     @Override
+    //The child class must provide the implementation abstract method
     public double calculateSalary() {
         return hoursWorked * hourlyRate;
     }
